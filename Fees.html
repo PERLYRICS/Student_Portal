@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fees | KNUST/SMC Portal</title>
+  <link rel="stylesheet" href="css/Result.css">
+</head>
+<body>
+  
+  <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+
+  <div class="sidebar" id="sidebarMenu">
+    <div class="center">
+      <h2><u>Student Portal</u></h2>
+      <ul class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="service.html">Service Information</a>
+        <a href="profile.html">Personal Details</a>
+        <a href="generation.html">First Generational Info</a>
+        <a href="verify.html">Verify Details</a>
+        <a href="elearn.html">Elearning</a>
+        <a href="past.html">Past Questions</a>
+        <a href="internship.html">Internship</a>
+        <a href="data.html">MTN Data Bundle</a>
+        <a href="results.html">Statement of Results</a>
+        <a class="active" href="survey.html">Survey</a>
+        <a href="registration.html">Registration</a>
+        <a href="ghana-card.html">Update GH-Card</a>
+        <a href="fees.html">Fees</a>
+        <a href="counsel.html">Counselling Services</a>
+        <a href="exam Timetable.html">Exams Timetable</a>
+        <a href="faq.html">FAQs</a>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="overlay" class="overlay"></div> 
+  
+  <section class="results-premium fade-in">
+    <div class="top-bar">
+      <h1>Fees and Payment Details</h1>
+      <div class="profile">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <span class="name">Frimpong</span>
+        <a href="logout.html" class="logout">Logout</a>
+      </div>
+    </div>
+
+    <div class="result-box" style="background: #fff0e6; border-left: 6px solid #ff6600;">
+        <i class="checkmark" style="color: #ff6600; font-size: 20px;">⚠️</i>
+        <div class="result-message">
+            <strong>Current Outstanding Balance:</strong> GH₵ 1,150.00.<br>
+            Please settle all outstanding fees to avoid registration issues.
+        </div>
+    </div>
+
+    <div class="semester-section">
+      <h2>Current Semester Fee Breakdown</h2>
+      <div class="responsive-table">
+        <table id="fees-breakdown">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Amount Due (GHS)</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tuition Fee (Main)</td>
+              <td>2,500.00</td>
+              <td class="status paid">Paid</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Technology/Lab Fee</td>
+              <td>350.00</td>
+              <td class="status outstanding">Outstanding</td>
+              <td><a href="#pay">Pay Now</a></td>
+            </tr>
+            <tr>
+              <td>Library Fee</td>
+              <td>150.00</td>
+              <td class="status outstanding">Outstanding</td>
+              <td><a href="#pay">Pay Now</a></td>
+            </tr>
+            <tr>
+              <td>Student ID/Materials</td>
+              <td>100.00</td>
+              <td class="status paid">Paid</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Destruction Of Properties Fine</td>
+              <td>1,000.00</td>
+              <td class="status outstanding">Outstanding</td>
+              <td><a href="#pay">Pay Now</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="gpa-summary" style="margin-top: 20px;">
+          <strong>TOTAL DUE:</strong> GH₵ 4,100.00 | 
+          <strong>TOTAL PAID:</strong> GH₵ 2,600.00 | 
+          <strong>BALANCE:</strong> GH₵ 1,500.00
+      </p>
+    </div>
+
+    <div class="semester-section">
+        <h2>Payment History (2024/2025)</h2>
+        <div class="responsive-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Reference</th>
+                        <th>Amount Paid (GHS)</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2024-09-01</td><td>KNUST-P00123</td><td>2,500.00</td><td>Tuition</td></tr>
+                    <tr><td>2024-09-05</td><td>KNUST-P00124</td><td>100.00</td><td>Materials</td></tr>
+                    <tr><td>2024-09-15</td><td>KNUST-P00125</td><td>1,000.00</td><td>Partial Payment</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+  </section>
+
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebarMenu');
+    const overlay = document.getElementById('overlay'); 
+    
+    // Ensure sidebar starts closed on mobile load
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('active'); 
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active'); 
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', () => {
+      closeSidebar();
+    });
+    
+    // Simple script to apply row styling based on status text
+    document.querySelectorAll('#fees-breakdown tbody tr').forEach(row => {
+        const statusCell = row.querySelector('.status');
+        if (statusCell) {
+            if (statusCell.textContent.trim() === 'Outstanding') {
+                row.style.backgroundColor = '#fff0f0'; // Light red background for easy visibility
+            }
+        }
+    });
+
+  </script>
+</body>
+</html>

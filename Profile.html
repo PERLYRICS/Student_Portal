@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Details | KNUST/SMC Portal</title>
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  
+  <button id="menuToggle" class="menu-toggle">☰</button>
+  <div id="overlay" class="overlay"></div>
+<div class="sidebar" id="sidebarMenu">
+    <div class="sidebar-header">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <div>
+            <div class="name-small">William Frimpong</div>
+            <div class="role-small">BSc. Computer Science</div>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="service.html"><i class="fas fa-info-circle"></i> Service Information</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Personal Details</a>
+        <a href="generation.html"><i class="fas fa-users"></i> First Generational Info</a>
+        <a href="verify.html"><i class="fas fa-check-circle"></i> Verify Details</a>
+        <a href="elearn.html"><i class="fas fa-book-open"></i> Elearning</a>
+        <a href="past.html"><i class="fas fa-question-circle"></i> Past Questions</a>
+        <a href="internship.html"><i class="fas fa-briefcase"></i> Internship</a>
+        <a href="data.html"><i class="fas fa-signal"></i> MTN Data Bundle</a>
+        <a href="results.html"><i class="fas fa-graduation-cap"></i> Statement of Results</a>
+        <a href="survey.html"><i class="fas fa-poll"></i> Survey</a>
+        <a href="registration.html"><i class="fas fa-address-card"></i> Registration</a>
+        <a href="ghana-card.html"><i class="fas fa-id-card"></i> Update GH-Card</a>
+        <a href="fees.html"><i class="fas fa-money-check-alt"></i> Fees</a>
+        <a href="counsel.html"><i class="fas fa-hand-holding-heart"></i> Counselling Services</a>
+        <a href="exam Timetable.html"><i class="fas fa-calendar-alt"></i> Exams Timetable</a>
+        <a href="faq.html"><i class="fas fa-comments"></i> FAQs</a>
+    </ul>
+</div>
+  <section class="results-premium fade-in">
+    <div class="top-bar">
+      <h1>Student Profile: Personal Details</h1>
+      <div class="profile">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <span class="name"> .</span>
+        <a href="logout.html" class="logout">Logout</a>
+      </div>
+    </div>
+    
+    
+      <div class="profile-info">
+        <h2>WILLIAM NANA KODUA ASANTE FRIMPONG</h2>
+        <p><strong>Student ID:</strong> KNUST/SMC/23/001</p>
+        <p><strong>Program:</strong> BSc. Computer Science</p>
+        <p><strong>Email:</strong> wf8059142@gmail.com</p>
+        <p><strong>Phone:</strong> +233 53 695 9759</p>
+      </div>
+    </div>
+
+    <section class="bio-section">
+      <h3>About William</h3>
+      <p>
+        William Frimpong is a passionate Computer Science student with strong leadership qualities and technical excellence.
+        Currently serving as the <strong>SRC Secretary</strong> and an active member of the <strong>Tech Club</strong>, 
+        William is known for organizing tech-related seminars and helping students grow academically and socially.
+      </p>
+      <p>
+        As an <strong>Entertainment Chairperson</strong>, he balances studies with campus life engagement.
+        William also leads the student coding initiative, helping peers improve their programming skills.
+      </p>
+    </section>
+
+    <section class="roles-section">
+      <h3>Student Roles & Achievements</h3>
+      <ul>
+        <li><strong style="color: #0066cc;">🎓</strong> SRC Secretary – 2024 Academic Year</li>
+        <li><strong style="color: #0066cc;">💡</strong> President, Coding & Tech Club</li>
+        <li><strong style="color: #0066cc;">🎤</strong> Entertainment Committee Lead</li>
+        <li><strong style="color: #0066cc;">🏆</strong> Awarded Best Student Leader – 2024</li>
+        <li><strong style="color: #0066cc;">🛠️</strong> Developer of the SMC/KNUST Student Portal</li>
+      </ul>
+    </section>
+    
+  </section>
+
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebarMenu');
+    const overlay = document.getElementById('overlay'); 
+    const navLinks = document.querySelector('.nav-links'); // Get the link container
+
+    // Function to open the sidebar
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
+      // Set the transition property only when opening on mobile
+      sidebar.style.transition = 'left 0.3s ease';
+    }
+
+    // Function to close the sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+
+    // 1. Toggle button handler
+    toggleBtn.addEventListener('click', (event) => {
+      // Prevent the button click from immediately closing the menu if it was open
+      event.stopPropagation(); 
+      if (sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    // 2. Overlay click handler (to close the menu when user clicks outside)
+    overlay.addEventListener('click', () => {
+      closeSidebar();
+    });
+    
+    // 3. Optional: Close menu when a navigation link is clicked (good for mobile UX)
+    navLinks.addEventListener('click', (event) => {
+        // Check if the clicked element or its parent is a link (<a>)
+        if (event.target.closest('a')) {
+            // Delay closing slightly so the user sees the active state change
+            setTimeout(closeSidebar, 150); 
+        }
+    });
+
+    // 4. Reset transition style on load for desktop mode (crucial fix)
+    window.addEventListener('load', () => {
+        if (window.innerWidth > 768) {
+            sidebar.style.transition = 'none';
+        }
+    });
+
+</script>

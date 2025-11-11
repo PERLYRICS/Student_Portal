@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exams Timetable | KNUST/SMC Portal</title>
+  <link rel="stylesheet" href="css/Result.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+  
+  <div class="sidebar" id="sidebarMenu">
+    <div class="center">
+      <h2><u>Student Portal</u></h2>
+      <ul class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="service.html">Service Information</a>
+        <a href="profile.html">Personal Details</a>
+        <a href="generation.html">First Generational Info</a>
+        <a href="verify.html">Verify Details</a>
+        <a href="elearn.html">Elearning</a>
+        <a href="past.html">Past Questions</a>
+        <a href="internship.html">Internship</a>
+        <a href="data.html">MTN Data Bundle</a>
+        <a href="results.html">Statement of Results</a>
+        <a href="survey.html">Survey</a>
+        <a href="registration.html">Registration</a>
+        <a href="ghana-card.html">Update GH-Card</a>
+        <a href="fees.html">Fees</a>
+        <a href="counsel.html">Counselling Services</a>
+        <a href="exam Timetable.html">Exams Timetable</a>
+        <a class="active" href="faq.html">FAQs</a>
+      </ul>
+    </div>
+  </div>
+  <div id="overlay" class="overlay"></div> 
+
+  <section class="results-premium fade-in">
+    <div class="top-bar">
+      <h1>Exams Timetable</h1>
+      <div class="profile">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <span class="name">Frimpong</span>
+        <a href="logout.html" class="logout">Logout</a>
+      </div>
+    </div>
+    
+    <div class="result-box" style="display: flex; justify-content: space-between; align-items: center; border-left: 6px solid #004080; background: #f0f7ff; margin-bottom: 20px;">
+        <input type="text" id="searchInput" placeholder="Search by course..." style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; flex-grow: 1; margin-right: 10px;">
+        <button id="downloadBtn" style="padding: 8px 15px; background: #004080; color: white; border: none; border-radius: 4px; cursor: pointer;">Download Timetable (PDF)</button>
+    </div>
+
+    <p class="gpa-summary">
+        <span style="color: green; font-weight: bold;">Upcoming:</span> Exams yet to happen.
+        <span style="color: gray; margin-left: 20px;">Completed:</span> Exams already taken.
+    </p>
+
+    <div class="responsive-table">
+        <table id="timetable">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Venue</th>
+              <th class="status-col">Status</th> </tr>
+          </thead>
+          <tbody>
+            <tr data-date="2025-11-12"><td>CSC101</td><td>12th Nov 2025</td><td>9:00 AM</td><td>Lecture Hall A</td><td class="status-cell"></td></tr>
+            <tr data-date="2025-11-14"><td>MTH201</td><td>14th Nov 2025</td><td>8:40 AM</td><td>Lecture Hall C</td><td class="status-cell"></td></tr>
+            <tr data-date="2025-11-16"><td>ILT301</td><td>16th Nov 2025</td><td>11:00 AM</td><td>Lecture Hall B</td><td class="status-cell"></td></tr>
+            <tr data-date="2025-11-01"><td>PHY101</td><td>1st Nov 2025</td><td>9:00 AM</td><td>Lecture Hall A</td><td class="status-cell"></td></tr> <tr data-date="2025-11-20"><td>CSC103</td><td>20th Nov 2025</td><td>1:00 PM</td><td>Lecture Hall D</td><td class="status-cell"></td></tr>
+          </tbody>
+        </table>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    // --- Sidebar Functionality (Reused from results.html) ---
+    const toggleBtn = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebarMenu');
+    const overlay = document.getElementById('overlay'); 
+    
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', () => {
+      closeSidebar();
+    });
+
+    // --- Timetable Logic (Updated and Enhanced) ---
+
+    function updateExamStatus() {
+      // NOTE: Using the current date of this conversation (November 9, 2025)
+      const today = new Date('2025-11-09T00:00:00'); 
+      const rows = document.querySelectorAll("#timetable tbody tr");
+
+      rows.forEach(row => {
+        // Get the exam date from the new data-date attribute
+        const examDateString = row.getAttribute('data-date');
+        const examDate = new Date(examDateString + 'T23:59:59'); // Set time to end of day
+        const statusCell = row.querySelector('.status-cell');
+        
+        let statusText = '';
+        let className = '';
+
+        if (examDate < today) {
+          statusText = 'Completed';
+          className = 'completed';
+        } else {
+          statusText = 'Upcoming';
+          className = 'upcoming';
+        }
+
+        statusCell.textContent = statusText;
+        statusCell.className = 'status-cell ' + className;
+      });
+    }
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+      const filter = this.value.toUpperCase();
+      const rows = document.querySelectorAll("#timetable tbody tr");
+      rows.forEach(row => {
+        const course = row.cells[0].textContent.toUpperCase();
+        row.style.display = course.includes(filter) ? "" : "none";
+      });
+    });
+
+    // Download functionality
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const timetable = document.getElementById('timetable');
+      html2pdf().from(timetable).save('Exam_Timetable.pdf');
+    });
+
+    // Run status update on page load
+    updateExamStatus(); 
+  </script>
+</body>
+</html>

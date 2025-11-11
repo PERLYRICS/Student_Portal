@@ -1,0 +1,409 @@
+/* --- Global Reset & Typography --- */
+body {
+    background-color: #f0f2f5; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Global Content Wrapper (results-premium) --- */
+.results-premium {
+    color: #1a1a1a;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 100%;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease-in-out;
+    /* Desktop Layout Adjustment */
+    margin-left: 260px; /* Account for wider sidebar + margin */
+    max-width: calc(100% - 280px);
+}
+.results-premium:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Headers and Titles --- */
+.top-bar h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #002e5a;
+    margin: 0;
+}
+.semester-section h2 {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+.gpa-summary {
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #004080;
+    padding: 10px;
+    background: #eaf3ff;
+    border-radius: 8px;
+}
+
+/* --- Status and Info Boxes --- */
+.note {
+    font-size: 14px;
+    line-height: 1.6;
+    background: #fff8f8;
+    border-left: 5px solid #d9534f;
+    padding: 12px 18px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.note .red { color: #d9534f; font-weight: 600; }
+.note .blue { color: #007bff; font-weight: 600; }
+.note .purple { color: #6f42c1; font-weight: 600; }
+.note .orange { color: #fd7e14; font-weight: 600; }
+
+.result-box {
+    display: flex;
+    background: #e9f7ef;
+    border-left: 6px solid #28a745;
+    padding: 18px;
+    border-radius: 6px;
+    margin-top: 20px;
+    align-items: flex-start;
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+}
+.checkmark {
+    font-size: 36px;
+    color: #28a745;
+    margin-right: 15px;
+    line-height: 1;
+}
+.result-message {
+    font-size: 15px;
+}
+.result-message .highlight {
+    color: #002e5a;
+    font-weight: 700;
+}
+
+/* --- Tables --- */
+.responsive-table {
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+.responsive-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+.responsive-table thead tr {
+    border-radius: 8px 8px 0 0;
+}
+.responsive-table th {
+    background: #004080;
+    color: #fff;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.responsive-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+    font-size: 14px;
+}
+.responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.responsive-table tbody tr:hover {
+    background-color: #eaf3ff;
+    cursor: default;
+}
+
+/* --- Profile and Top Bar --- */
+.top-bar {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    display: flex; /* Ensure Top Bar is a flex container */
+    justify-content: space-between;
+    align-items: center;
+}
+.profile img {
+    width: 45px;
+    height: 45px;
+    border: 3px solid #004080;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.logout {
+    font-weight: 600;
+    color: #d9534f;
+    transition: color 0.2s;
+}
+.logout:hover {
+    color: #a94442;
+}
+.menu-toggle {
+    /* Desktop state: hidden */
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1003;
+    cursor: pointer;
+}
+
+/* --- Sidebar Styles (Desktop & Mobile) --- */
+.sidebar {
+  width: 240px; 
+  height: 100vh;
+  background-color: #fff; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.08); 
+  overflow-y: auto;
+  z-index: 1002;
+  /* CRITICAL FIX: No transition here. Transition is added only for mobile in the media query or via JS. */
+  transition: none; 
+}
+
+/* Personalized Sidebar Header */
+.sidebar-header {
+  background-color: #004080;
+  color: #fff;
+  padding: 25px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.sidebar-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+.sidebar-header .name-small {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.sidebar-header .role-small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: block;
+  padding: 10px 0;
+  margin: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  padding: 10px 18px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.nav-links a i {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+.nav-links a:hover {
+  background-color: #eaf3ff;
+  color: #004080;
+  transform: translateX(3px);
+}
+.nav-links a.active {
+  background-color: #004080;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Overlay --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- Responsive Mobile Styles (The Fix) --- */
+@media (max-width: 768px) {
+  
+  /* Show toggle button on mobile */
+  .menu-toggle {
+    display: block;
+  }
+  
+  /* Reset content wrapper margin for mobile */
+  .results-premium {
+    margin-left: auto;
+    max-width: 100%;
+    margin-top: 10px; 
+    padding: 20px; /* Reduced padding for mobile */
+  }
+  
+  /* Sidebar positioning for mobile */
+  .sidebar {
+    width: 240px; 
+    /* The FIX: Slide it off-screen by more than its width. */
+    left: -260px; 
+    transition: left 0.3s ease; /* ENABLE transition only on mobile */
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+  
+  /* Smaller header text for mobile devices */
+  .top-bar h1 {
+    font-size: 24px;
+  }
+}
+.Hidden {
+  display: none;
+}
+
+
+/* --- Exam Timetable Specific Styles --- */
+.status-cell {
+  font-weight: 700;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.completed {
+  color: #555;
+  background-color: #e9ecef;
+}
+.upcoming {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+.result-box input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s;
+}
+.result-box input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+#downloadBtn {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+}
+#downloadBtn:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+}
+
+
+/* --- Profile Page Specific Styles --- */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px 20px;
+  background: #f4f6f8;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007bff;
+  margin-bottom: 15px;
+  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
+}
+.profile-info h2 {
+  margin: 0 0 8px 0;
+  color: #002e5a;
+  font-size: 26px;
+  font-weight: 700;
+}
+.profile-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+.profile-info strong {
+  color: #004080;
+  font-weight: 600;
+}
+.bio-section, .roles-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.bio-section h3, .roles-section h3 {
+  color: #004080;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+  margin-top: 0; 
+  margin-bottom: 15px;
+}
+.roles-section ul {
+  list-style: none;
+  padding: 0;
+}
+.roles-section li {
+  padding: 10px 0;
+  border-bottom: 1px dotted #e0e0e0;
+  font-size: 15px;
+  color: #333;
+}
+.roles-section li:last-child {
+  border-bottom: none;
+}

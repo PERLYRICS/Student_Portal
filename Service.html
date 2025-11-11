@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Information | KNUST/SMC Portal</title>
+  
+  <link rel="stylesheet" href="css/Result.css" />
+  <link rel="stylesheet" href="css/portal-pages.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  
+  <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+
+  <div class="sidebar" id="sidebarMenu">
+    <div class="sidebar-header">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <div>
+            <div class="name-small">William Frimpong</div>
+            <div class="role-small">BSc. Computer Science</div>
+        </div>
+    </div>
+    
+    <ul class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a class="active" href="service.html"><i class="fas fa-info-circle"></i> Service Information</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Personal Details</a>
+        <a href="generation.html"><i class="fas fa-users"></i> First Generational Info</a>
+        <a href="verify.html"><i class="fas fa-check-circle"></i> Verify Details</a>
+        <a href="elearn.html"><i class="fas fa-book-open"></i> Elearning</a>
+        <a href="past.html"><i class="fas fa-question-circle"></i> Past Questions</a>
+        <a href="internship.html"><i class="fas fa-briefcase"></i> Internship</a>
+        <a href="data.html"><i class="fas fa-signal"></i> MTN Data Bundle</a>
+        <a href="results.html"><i class="fas fa-graduation-cap"></i> Statement of Results</a>
+        <a href="survey.html"><i class="fas fa-poll"></i> Survey</a>
+        <a href="registration.html"><i class="fas fa-address-card"></i> Registration</a>
+        <a href="ghana-card.html"><i class="fas fa-id-card"></i> Update GH-Card</a>
+        <a href="fees.html"><i class="fas fa-money-check-alt"></i> Fees</a>
+        <a href="counsel.html"><i class="fas fa-hand-holding-heart"></i> Counselling Services</a>
+        <a href="exam Timetable.html"><i class="fas fa-calendar-alt"></i> Exams Timetable</a>
+        <a href="faq.html"><i class="fas fa-comments"></i> FAQs</a>
+    </ul>
+  </div>
+  
+  <div id="overlay" class="overlay"></div> 
+  
+  <section class="results-premium fade-in">
+    <div class="top-bar">
+      <h1>University Service Contacts</h1>
+      <div class="profile">
+        <img src="images/my pic.JPG" alt="Student Photo" />
+        <span class="name">Frimpong</span>
+        <a href="login.html" class="logout">Logout</a>
+      </div>
+    </div>
+    
+    <p class="note" style="border-left-color: #007bff; background: #eaf3ff;">
+        <i class="fas fa-phone-volume"></i> For immediate assistance, please contact the appropriate service below.
+    </p>
+
+    <div class="service-grid">
+        
+        <div class="service-card">
+            <h3>Academic Records Office</h3>
+            <p><strong>Focus:</strong> Grades, Transcripts, Graduation, Verification.</p>
+            <p><strong>Email:</strong> <a href="mailto:records@knustsmc.edu.gh">records@knustsmc.edu.gh</a></p>
+            <p><strong>Phone:</strong> +233 (0)3220 60137</p>
+            <p><strong>Location:</strong> Main Administration Block, First Floor</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Student IT Helpdesk</h3>
+            <p><strong>Focus:</strong> Portal access, Password reset, Elearning issues, Wi-Fi.</p>
+            <p><strong>Email:</strong> <a href="mailto:itsupport@knustsmc.edu.gh">itsupport@knustsmc.edu.gh</a></p>
+            <p><strong>Phone:</strong> +233 (0)50 999 0001</p>
+            <p><strong>Location:</strong> SMC Computing Lab, Ground Floor</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Finance Office</h3>
+            <p><strong>Focus:</strong> Fee statements, Payment plans, Sponsorship issues, Refunds.</p>
+            <p><strong>Email:</strong> <a href="mailto:finance@knustsmc.edu.gh">finance@knustsmc.edu.gh</a></p>
+            <p><strong>Phone:</strong> +233 (0)3220 60225</p>
+            <p><strong>Location:</strong> Finance Annex Building</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Student Affairs Unit</h3>
+            <p><strong>Focus:</strong> Accommodation, Discipline, Welfare, Counseling services.</p>
+            <p><strong>Email:</strong> <a href="mailto:studentaffairs@knustsmc.edu.gh">studentaffairs@knustsmc.edu.gh</a></p>
+            <p><strong>Phone:</strong> +233 (0)54 100 0000</p>
+            <p><strong>Location:</strong> Student Union Building, Office 101</p>
+        </div>
+
+        <div class="service-card">
+            <h3>University Library</h3>
+            <p><strong>Focus:</strong> Research support, Borrowing, Digital resources access.</p>
+            <p><strong>Email:</strong> <a href="mailto:library@knustsmc.edu.gh">library@knustsmc.edu.gh</a></p>
+            <p><strong>Phone:</strong> +233 (0)3220 60500</p>
+            <p><strong>Location:</strong> Main Library Building</p>
+        </div>
+    </div>
+  </section>
+  
+  <script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebarMenu');
+  const overlay = document.getElementById('overlay'); // ID is now 'overlay'
+  
+  // FIX: Ensure sidebar starts closed on mobile load
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+
+  // Function to open the sidebar
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active'); // Activate the overlay
+  }
+
+  // Function to close the sidebar
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active'); // Deactivate the overlay
+  }
+
+  // 1. Toggle button handler
+  toggleBtn.addEventListener('click', () => {
+    if (sidebar.classList.contains('open')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  // 2. Overlay click handler (to close when tapping outside)
+  overlay.addEventListener('click', () => {
+    closeSidebar();
+  });
+</script>
+</body> 
+</html>
+  

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Step 1: First Generational Data | KNUST/SMC Registration</title>
+  
+  <link rel="stylesheet" href="css/Registration.css" />
+  <link rel="stylesheet" href="css/portal-pages.css" /> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Keeping the minimal style overrides here for clarity */
+    body {
+        background-color: #f0f2f5; 
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh; 
+        margin: 0;
+        padding-top: 50px; 
+    }
+
+    .results-premium {
+        max-width: 800px; /* Wider card for more content */
+        margin: 0; 
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .top-bar {
+        border-bottom: 2px solid #004080;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        text-align: left; /* Aligns with professional look */
+        display: block; 
+    }
+    
+    .top-bar h1 {
+        font-size: 28px;
+        color: #004080;
+        margin-bottom: 5px;
+    }
+    .top-bar p {
+        color: #555;
+        font-size: 15px;
+        margin: 0;
+    }
+
+    /* Hide unnecessary elements */
+    .menu-toggle, .sidebar, #overlay, .profile {
+        display: none !important;
+    }
+  </style>
+</head>
+<body>
+  
+  <section class="results-premium fade-in">
+    <div class="top-bar">
+      <h1>KNUST/SMC Undergraduate Registration</h1>
+      <p>Current Step: First Generational and Demographic Data Submission</p>
+    </div>
+    
+    <div class="registration-progress">
+        <div class="progress-step completed">
+            <div class="step-icon"><i class="fas fa-check"></i></div>
+            <span>1. Application</span>
+        </div>
+        <div class="progress-step active">
+            <div class="step-icon">2</div>
+            <span>2. Data Forms</span>
+        </div>
+        <div class="progress-step">
+            <div class="step-icon">3</div>
+            <span>3. Verification</span>
+        </div>
+        <div class="progress-step">
+            <div class="step-icon">4</div>
+            <span>4. Fee Payment</span>
+        </div>
+        <div class="progress-step">
+            <div class="step-icon">5</div>
+            <span>5. Confirmation</span>
+        </div>
+    </div>
+    
+    <p class="note" style="border-left-color: #fd7e14; background: #fff3e6;">
+        <i class="fas fa-exclamation-triangle"></i> **Data Forms (2 of 5)**: Complete the sections below to proceed to the document verification step. All fields are mandatory.
+    </p>
+
+    <form>
+        <div class="form-section">
+            <h3><i class="fas fa-users"></i> Student Background Information</h3>
+            
+            <div class="form-group">
+                <label>Are you the first person in your immediate family (parents/guardians) to attend university/college?</label>
+                <div class="radio-option">
+                    <input type="radio" id="is_first_gen_yes" name="is_first_gen" value="Yes" required>
+                    <label for="is_first_gen_yes">Yes</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="is_first_gen_no" name="is_first_gen" value="No">
+                    <label for="is_first_gen_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="parents_highest_edu">What is the highest level of education attained by your parents/guardians?</label>
+                <select id="parents_highest_edu" name="parents_highest_edu" required>
+                    <option value="">-- Select --</option>
+                    <option value="None">None</option>
+                    <option value="Primary">Primary School</option>
+                    <option value="JHS">Junior High School (JHS)</option>
+                    <option value="SHS">Senior High School (SHS) / O' Level</option>
+                    <option value="Vocational">Vocational/Technical Training</option>
+                    <option value="Diploma">Diploma/HND</option>
+                    <option value="Degree">University Degree (Bachelor's or higher)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h3><i class="fas fa-map-marked-alt"></i> Regional and Demographic Data</h3>
+            
+            <div class="form-group">
+                <label for="region_origin">Region of Origin (Based on Secondary School location):</label>
+                <select id="region_origin" name="region_origin" required>
+                    <option value="">-- Select Region --</option>
+                    <option value="Ashanti">Ashanti Region</option>
+                    <option value="Greater Accra">Greater Accra Region</option>
+                    <option value="Central">Central Region</option>
+                    </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="marital_status">Marital Status:</label>
+                <select id="marital_status" name="marital_status" required>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3><i class="fas fa-phone-alt"></i> Parent/Guardian Contact Details</h3>
+            
+            <div class="form-group">
+                <label for="parent_occupation">Parent/Guardian Primary Occupation:</label>
+                <input type="text" id="parent_occupation" name="parent_occupation" placeholder="e.g., Trader, Farmer, Teacher" required>
+            </div>
+
+            <div class="form-group">
+                <label for="parent_contact">Parent/Guardian Contact Phone Number (Required for emergency):</label>
+                <input type="text" id="parent_contact" name="parent_contact" placeholder="+233 XXX XXX XXXX" required>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" style="background: #007bff; float: right;">
+            <i class="fas fa-forward"></i> Save & Proceed to Verification
+        </button>
+        <div style="clear: both;"></div>
+
+    </form>
+
+
+  </section>
+
+</body>
+</html>
