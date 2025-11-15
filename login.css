@@ -32,10 +32,15 @@
 /* Body layout */
 
 body {
-  background-image: url('images.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--images-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
 }
 /* Header / Banner Section */
 .header {
