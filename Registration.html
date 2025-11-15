@@ -56,58 +56,162 @@
 </head>
 <body>
   
-  <section class="results-premium fade-in">
-    <div class="top-bar">
-      <h1>KNUST/SMC Undergraduate Registration</h1>
-      <p>Current Step: First Generational and Demographic Data Submission</p>
-    </div>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <link rel="stylesheet" href="registration-premium.css" /> 
+
+  <style>
+    /* Global Styles for Body & Dark Mode Transition */
+    body {
+      background-color: #f8fafc; /* Light Gray Background */
+      transition: background-color 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Dark Mode Overrides for premium look */
+    .dark-mode {
+      background-color: #0d1117; /* GitHub Dark Mode BG */
+      color: #f0f6fc;
+    }
+    .dark-mode .bg-white { background-color: #161b22 !important; }
+    .dark-mode .text-gray-600 { color: #8b949e !important; }
+    .dark-mode input, .dark-mode select { 
+      background-color: #21262d !important;
+      border-color: #30363d !important;
+      color: #f0f6fc !important;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+  
+  <div class="fixed top-4 right-4 z-50">
+      <label class="switch relative inline-block w-12 h-6">
+          <input type="checkbox" id="theme-toggle-checkbox" class="opacity-0 w-0 h-0">
+          <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition-all duration-400">
+             </span>
+      </label>
+  </div>
+
+  <section class="w-full max-w-5xl bg-white shadow-2xl rounded-xl p-8 md:p-12 transform hover:shadow-3xl transition-all duration-500">
     
-    <div class="registration-progress">
+    <div class="top-bar border-b border-blue-800 pb-4 mb-8">
+      <h1 class="text-3xl font-extrabold text-[#004080]">
+        <i class="fas fa-graduation-cap mr-3"></i> KNUST/SMC Undergraduate Registration
+      </h1>
+      <p class="text-gray-600 mt-1 text-lg">Step 2 of 5: Data Submission — First Generational & Demographic Profile</p>
+    </div>
+
+    <div class="flex justify-between items-center mb-10 text-center registration-progress">
         <div class="progress-step completed">
             <div class="step-icon"><i class="fas fa-check"></i></div>
             <span>1. Application</span>
         </div>
+        <div class="flex-grow h-0.5 bg-gray-300 -mt-4"></div>
         <div class="progress-step active">
             <div class="step-icon">2</div>
             <span>2. Data Forms</span>
         </div>
+        <div class="flex-grow h-0.5 bg-gray-300 -mt-4"></div>
         <div class="progress-step">
             <div class="step-icon">3</div>
             <span>3. Verification</span>
         </div>
+        <div class="flex-grow h-0.5 bg-gray-300 -mt-4"></div>
         <div class="progress-step">
             <div class="step-icon">4</div>
             <span>4. Fee Payment</span>
         </div>
+        <div class="flex-grow h-0.5 bg-gray-300 -mt-4"></div>
         <div class="progress-step">
             <div class="step-icon">5</div>
             <span>5. Confirmation</span>
         </div>
     </div>
     
-    <p class="note" style="border-left-color: #fd7e14; background: #fff3e6;">
-        <i class="fas fa-exclamation-triangle"></i> **Data Forms (2 of 5)**: Complete the sections below to proceed to the document verification step. All fields are mandatory.
-    </p>
+    <div class="p-4 mb-8 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 font-medium rounded-md shadow-inner">
+        <i class="fas fa-exclamation-triangle mr-2"></i> **Mandatory Data Forms:** Please complete all fields below to ensure smooth processing. Your information is protected.
+    </div>
 
-    <form>
-        <div class="form-section">
-            <h3><i class="fas fa-users"></i> Student Background Information</h3>
+    <form class="space-y-10">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 border-b pb-8 border-gray-200">
+            <h3 class="col-span-full text-xl font-semibold text-blue-800 mb-4 border-b pb-2">
+                <i class="fas fa-user-circle mr-2"></i> Personal & Demographic Profile
+            </h3>
+
+            <div>
+                <label for="marital_status" class="block text-sm font-medium text-gray-700 mb-1">Marital Status <span class="text-red-500">*</span></label>
+                <select id="marital_status" name="marital_status" required 
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 bg-gray-50">
+                    <option value="">-- Select Status --</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
             
-            <div class="form-group">
-                <label>Are you the first person in your immediate family (parents/guardians) to attend university/college?</label>
-                <div class="radio-option">
-                    <input type="radio" id="is_first_gen_yes" name="is_first_gen" value="Yes" required>
-                    <label for="is_first_gen_yes">Yes</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="is_first_gen_no" name="is_first_gen" value="No">
-                    <label for="is_first_gen_no">No</label>
+            <div>
+                <label for="nationality" class="block text-sm font-medium text-gray-700 mb-1">Nationality <span class="text-red-500">*</span></label>
+                <input type="text" id="nationality" name="nationality" placeholder="e.g., Ghanaian, Nigerian" required 
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="region_origin" class="block text-sm font-medium text-gray-700 mb-1">Region of Origin <span class="text-red-500">*</span></label>
+                <select id="region_origin" name="region_origin" required 
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 bg-gray-50">
+                    <option value="">-- Select Region --</option>
+                    <option value="Ashanti">Ashanti Region</option>
+                    <option value="Greater Accra">Greater Accra Region</option>
+                    <option value="Central">Central Region</option>
+                    <option value="Eastern">Eastern Region</option>
+                    <option value="Western">Western Region</option>
+                    <option value="Volta">Volta Region</option>
+                    <option value="Northern">Northern Region</option>
+                    <option value="Upper East">Upper East Region</option>
+                    <option value="Upper West">Upper West Region</option>
+                    <option value="Brong-Ahafo">Bono/Ahafo Region</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="place_of_birth" class="block text-sm font-medium text-gray-700 mb-1">City/Town of Birth <span class="text-red-500">*</span></label>
+                <input type="text" id="place_of_birth" name="place_of_birth" placeholder="e.g., Kumasi, Accra" required 
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 border-b pb-8 border-gray-200">
+            <h3 class="col-span-full text-xl font-semibold text-blue-800 mb-4 border-b pb-2">
+                <i class="fas fa-history mr-2"></i> Academic & Family Background
+            </h3>
+
+            <div class="col-span-full">
+                <label class="block text-sm font-medium text-gray-700 mb-2">First Generation Status <span class="text-red-500">*</span></label>
+                <p class="text-xs text-gray-500 mb-3">Are you the first person in your immediate family (parents/guardians) to attend university/college?</p>
+                <div class="flex space-x-6">
+                    <div class="flex items-center">
+                        <input type="radio" id="is_first_gen_yes" name="is_first_gen" value="Yes" required 
+                               class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="is_first_gen_yes" class="ml-2 block text-sm font-medium text-gray-700">Yes</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="is_first_gen_no" name="is_first_gen" value="No"
+                               class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="is_first_gen_no" class="ml-2 block text-sm font-medium text-gray-700">No</label>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="parents_highest_edu">What is the highest level of education attained by your parents/guardians?</label>
-                <select id="parents_highest_edu" name="parents_highest_edu" required>
+            <div class="col-span-full">
+                <label for="parents_highest_edu" class="block text-sm font-medium text-gray-700 mb-1">Parent's Highest Education Level <span class="text-red-500">*</span></label>
+                <select id="parents_highest_edu" name="parents_highest_edu" required 
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 bg-gray-50">
                     <option value="">-- Select --</option>
                     <option value="None">None</option>
                     <option value="Primary">Primary School</option>
@@ -116,56 +220,55 @@
                     <option value="Vocational">Vocational/Technical Training</option>
                     <option value="Diploma">Diploma/HND</option>
                     <option value="Degree">University Degree (Bachelor's or higher)</option>
+                    <option value="Postgraduate">Postgraduate Degree</option>
                 </select>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 border-b pb-8 border-gray-200">
+            <h3 class="col-span-full text-xl font-semibold text-blue-800 mb-4 border-b pb-2">
+                <i class="fas fa-phone-alt mr-2"></i> Parent/Guardian Contact & Occupation
+            </h3>
+
+            <div>
+                <label for="parent_name" class="block text-sm font-medium text-gray-700 mb-1">Parent/Guardian Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="parent_name" name="parent_name" placeholder="Full Name" required 
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div>
+                <label for="parent_occupation" class="block text-sm font-medium text-gray-700 mb-1">Primary Occupation <span class="text-red-500">*</span></label>
+                <input type="text" id="parent_occupation" name="parent_occupation" placeholder="e.g., Trader, Farmer, Teacher" required 
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="parent_contact" class="block text-sm font-medium text-gray-700 mb-1">Contact Phone Number <span class="text-red-500">*</span></label>
+                <input type="text" id="parent_contact" name="parent_contact" placeholder="+233 XXX XXX XXXX" required 
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="parent_email" class="block text-sm font-medium text-gray-700 mb-1">Parent/Guardian Email (Optional)</label>
+                <input type="email" id="parent_email" name="parent_email" placeholder="email@example.com"
+                       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500">
             </div>
         </div>
         
-        <div class="form-section">
-            <h3><i class="fas fa-map-marked-alt"></i> Regional and Demographic Data</h3>
-            
-            <div class="form-group">
-                <label for="region_origin">Region of Origin (Based on Secondary School location):</label>
-                <select id="region_origin" name="region_origin" required>
-                    <option value="">-- Select Region --</option>
-                    <option value="Ashanti">Ashanti Region</option>
-                    <option value="Greater Accra">Greater Accra Region</option>
-                    <option value="Central">Central Region</option>
-                    </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="marital_status">Marital Status:</label>
-                <select id="marital_status" name="marital_status" required>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Divorced">Divorced</option>
-                </select>
-            </div>
+        <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200 font-medium">
+                <i class="fas fa-save mr-2"></i> Save Progress
+            </button>
+            <button type="submit" class="px-8 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 transition-colors duration-300 transform hover:scale-105">
+                <i class="fas fa-forward mr-2"></i> Save & Proceed to Verification
+            </button>
         </div>
-
-        <div class="form-section">
-            <h3><i class="fas fa-phone-alt"></i> Parent/Guardian Contact Details</h3>
-            
-            <div class="form-group">
-                <label for="parent_occupation">Parent/Guardian Primary Occupation:</label>
-                <input type="text" id="parent_occupation" name="parent_occupation" placeholder="e.g., Trader, Farmer, Teacher" required>
-            </div>
-
-            <div class="form-group">
-                <label for="parent_contact">Parent/Guardian Contact Phone Number (Required for emergency):</label>
-                <input type="text" id="parent_contact" name="parent_contact" placeholder="+233 XXX XXX XXXX" required>
-            </div>
-        </div>
-
-        <button type="submit" class="submit-btn" style="background: #007bff; float: right;">
-            <i class="fas fa-forward"></i> Save & Proceed to Verification
-        </button>
-        <div style="clear: both;"></div>
 
     </form>
 
 
   </section>
 
+  <script src="main.js" defer></script> 
 </body>
 </html>
