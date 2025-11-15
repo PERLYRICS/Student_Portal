@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="Student_Portal/"/>
+  <base href="Student_Portal"/>
   <link rel="stylesheet" href="style.css"/>
   <title>Login | KNUST/SMC Portal</title>
 </head>
@@ -59,30 +58,24 @@
     <p><a href="#">Privacy Policy</a> | <a href="#">Help Desk</a></p>
   </footer>
 
-```html
-<!-- Keep your HTML above the <script> unchanged -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const studentID = document.getElementById("studentID").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-<script>
-  const validUsers = [
-    { id: "KNUST/SMC/23/001", password: "123456" },
-    { id: "KNUST/SMC/23/002", password: "pass002" },
-    { id: "KNUST/SMC/23/003", password: "mypassword" },
-    { id: "KNUST/SMC/23/004", password: "abc123" }
-  ];
+      const validID = "KNUST/SMC/23/001";
+      const validPassword = "123456";
 
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const studentID = document.getElementById("studentID").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    const isValid = validUsers.some(user => user.id === studentID && user.password === password);
-
-    if (isValid) {
-      window.location.href = "index.html";
-    } else {
-      alert("❌ Invalid Student ID or Password.");
-    }
-  });
-</script>
+      if (studentID === validID && password === validPassword) {
+        window.location.href = "index.html"; // Redirect to dashboard
+      } else {
+        alert("❌ Invalid Student ID or Password. Try again.");
+      }
+    });
+  </script>
 </body>
 </html>
+```
+
+---
