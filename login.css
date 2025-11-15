@@ -30,16 +30,6 @@
 }
 
 /* Body layout */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
 
 body {
   background-image: url('images.jpeg');
