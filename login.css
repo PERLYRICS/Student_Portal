@@ -41,6 +41,12 @@ body {
   padding: 2rem;
 }
 
+body {
+  background-image: url('images/your-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 /* Header / Banner Section */
 .header {
   background-color: var(--header-bg);
