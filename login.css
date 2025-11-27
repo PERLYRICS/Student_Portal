@@ -42,40 +42,33 @@ body {
   padding: 2rem;
 }
 .header {
-  background: linear-gradient(135deg, #004080, #0066cc);
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
-} 
-.header {
-  /* --- BACKGROUND IMAGE PROPERTIES START HERE --- */
-  background-image: url('image.jpg'); /* 1. **CHANGE THIS PATH** to your actual image location */
-  background-size: cover;                        /* 2. Ensures the image covers the entire header area */
-  background-position: center;                   /* 3. Centers the image in the header */
-  background-repeat: no-repeat;                  /* 4. Prevents the image from tiling (repeating) */
-  /* You can use a semi-transparent color overlay for better text readability */
-  background-color: rgba(0, 64, 128, 0.7);       /* Dark blue with 70% opacity */
-  background-blend-mode: overlay;                /* Blends the image and the color */
-  /* --- BACKGROUND IMAGE PROPERTIES END HERE --- */
+  /* --- 1. Background Styling: Image, Gradient, and Blending --- */
+  /* This loads an image AND a linear gradient. The gradient acts as a 
+     default background or blends with the image. */
+  background-image: url('image.jpg'), linear-gradient(135deg, #004080, #0066cc);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Blends the image and the gradient together for a richer effect */
+  background-blend-mode: overlay; 
   
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-}
-/* Header / Banner Section */
-.header {
-  background-color: var(--header-bg);
-  color: var(--header-text);
-  padding: 20px 0;
+  /* --- 2. Layout and Spacing --- */
+  color: white; /* Ensures text is visible */
+  padding: 3rem 2rem; /* Provides generous vertical padding for the banner look */
   width: 100%;
   text-align: center;
+  margin-bottom: 1rem;
+
+  /* --- 3. Aesthetics and Typography --- */
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  
+  /* Rounded corners at the bottom */
+  border-radius: 0 0 25px 25px; 
+  /* Adds a subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Branding */
 .branding {
