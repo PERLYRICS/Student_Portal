@@ -31,6 +31,20 @@ header {
   color: white;
   padding: 3rem 2rem;
   text-align: center;
+}header {
+  /* --- BACKGROUND IMAGE PROPERTIES START HERE --- */
+  background-image: url('image.jpg'); /* 1. **CHANGE THIS PATH** to your actual image location */
+  background-size: cover;                        /* 2. Ensures the image covers the entire header area */
+  background-position: center;                   /* 3. Centers the image in the header */
+  background-repeat: no-repeat;                  /* 4. Prevents the image from tiling (repeating) */
+  /* You can use a semi-transparent color overlay for better text readability */
+  background-color: rgba(0, 64, 128, 0.7);       /* Dark blue with 70% opacity */
+  background-blend-mode: overlay;                /* Blends the image and the color */
+  /* --- BACKGROUND IMAGE PROPERTIES END HERE --- */
+  
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
 header h1 {
