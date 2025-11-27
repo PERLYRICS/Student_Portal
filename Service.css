@@ -29,7 +29,7 @@ nav a.active {
   color: #ffd700;
 }
 
-.header {
+header {
   /* --- 1. Background Styling: Image, Gradient, and Blending --- */
   /* This loads an image AND a linear gradient. The gradient acts as a 
      default background or blends with the image. */
