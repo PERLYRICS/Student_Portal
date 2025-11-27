@@ -43,17 +43,20 @@ body {
 }
 }
 /* Header / Banner Section */
-.header {
-  background-color: var(--header-bg);
-  color: var(--header-text);
-  padding: 20px 0;
-  width: 100%;
+header {
+  /* --- BACKGROUND IMAGE PROPERTIES START HERE --- */
+  background-image: url('IMAGES/SMC.png'); /* 1. **CHANGE THIS PATH** to your actual image location */
+  background-size: cover;                        /* 2. Ensures the image covers the entire header area */
+  background-position: center;                   /* 3. Centers the image in the header */
+  background-repeat: no-repeat;                  /* 4. Prevents the image from tiling (repeating) */
+  /* You can use a semi-transparent color overlay for better text readability */
+  background-color: rgba(0, 64, 128, 0.7);       /* Dark blue with 70% opacity */
+  background-blend-mode: overlay;                /* Blends the image and the color */
+  /* --- BACKGROUND IMAGE PROPERTIES END HERE --- */
+  
+  color: white;
+  padding: 3rem 2rem;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* Branding */
