@@ -41,13 +41,13 @@ body {
   justify-content: center;
   padding: 2rem;
 }
-header {
+.header {
   background: linear-gradient(135deg, #004080, #0066cc);
   color: white;
   padding: 3rem 2rem;
   text-align: center;
 } 
-header {
+.header {
   /* --- BACKGROUND IMAGE PROPERTIES START HERE --- */
   background-image: url('image.jpg'); /* 1. **CHANGE THIS PATH** to your actual image location */
   background-size: cover;                        /* 2. Ensures the image covers the entire header area */
