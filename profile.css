@@ -6,6 +6,35 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.header {
+  /* --- 1. Background Styling: Image, Gradient, and Blending --- */
+  /* This loads an image AND a linear gradient. The gradient acts as a 
+     default background or blends with the image. */
+  background-image: url('image.jpg'), linear-gradient(135deg, #004080, #0066cc);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Blends the image and the gradient together for a richer effect */
+  background-blend-mode: overlay; 
+  
+  /* --- 2. Layout and Spacing --- */
+  color: white; /* Ensures text is visible */
+  padding: 3rem 2rem; /* Provides generous vertical padding for the banner look */
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  /* --- 3. Aesthetics and Typography --- */
+  font-size: 1.5rem;
+  font-weight: 600;
+  
+  /* Rounded corners at the bottom */
+  border-radius: 0 0 25px 25px; 
+  /* Adds a subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
 /* --- Global Content Wrapper (results-premium) --- */
 .results-premium {
     color: #1a1a1a;
