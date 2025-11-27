@@ -45,7 +45,7 @@ body {
 /* Header / Banner Section */
 header {
   /* --- BACKGROUND IMAGE PROPERTIES START HERE --- */
-  background-image: url('IMAGES/SMC.png'); /* 1. **CHANGE THIS PATH** to your actual image location */
+  background-image: url('image.jpg'); /* 1. **CHANGE THIS PATH** to your actual image location */
   background-size: cover;                        /* 2. Ensures the image covers the entire header area */
   background-position: center;                   /* 3. Centers the image in the header */
   background-repeat: no-repeat;                  /* 4. Prevents the image from tiling (repeating) */
