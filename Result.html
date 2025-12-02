@@ -8,28 +8,80 @@
   <title>Profile | KNUST/SMC Portal</title>
   
   <style>
-    /* CSS for Print/PDF Functionality */
-    .print-button {
-        padding: 10px 20px;
-        background-color: #007bff;
+    /* 🎨 THEME COLORS (DEFAULT: LIGHT MODE) */
+    :root {
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --box-background: #f9f9f9;
+        --table-header-bg: #e0e0e0;
+        --border-color: #cccccc;
+    }
+
+    /* 🌙 DARK MODE STYLES */
+    body.dark-mode {
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --box-background: #1e1e1e;
+        --table-header-bg: #333333;
+        --border-color: #444444;
+    }
+
+    /* APPLYING THEME VARIABLES */
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .results-premium {
+        border: 1px solid var(--border-color);
+        background-color: var(--box-background);
+        padding: 20px;
+    }
+    
+    .top-bar { border-bottom: 1px solid var(--border-color); }
+    
+    .result-box { background-color: var(--box-background); border: 1px solid var(--border-color); }
+
+    /* Table Styles */
+    table { border: 1px solid var(--border-color); width: 100%; border-collapse: collapse; }
+    th { background-color: var(--table-header-bg); border: 1px solid var(--border-color); }
+    td { border: 1px solid var(--border-color); }
+
+    /* 🖨️ PRINT/PDF & DARK MODE BUTTON STYLES */
+    .utility-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .print-button, .dark-mode-toggle {
+        padding: 10px 15px;
         color: white;
         border: none;
         cursor: pointer;
-        margin-top: 30px;
-        display: block; /* Make it a block element */
-        width: 100%; /* Full width for visibility */
+        flex-grow: 1;
         text-align: center;
         text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .print-button {
+        background-color: #007bff;
+    }
+    .dark-mode-toggle {
+        background-color: #6a0dad; /* Purple for toggle */
     }
     
     /* Media query to hide non-essential elements when printing */
     @media print {
-        .menu-toggle, .sidebar, #overlay, .top-bar a.logout, .print-button {
+        .menu-toggle, .sidebar, #overlay, .top-bar a.logout, .utility-buttons {
             display: none !important;
         }
-        body { margin: 0; }
-        .results-premium { padding: 10px; }
-        .top-bar { border-bottom: none; }
+        body { margin: 0; background-color: #fff !important; color: #000 !important; }
+        .results-premium { padding: 10px; border: none !important; background-color: #fff !important; }
+        /* Ensure printed tables and text are always legible black on white */
+        table, th, td { border-color: #000 !important; color: #000 !important; background-color: #fff !important; }
     }
   </style>
 
@@ -85,7 +137,7 @@
     <i class="checkmark">✔</i>
     <div class="result-message">
       <strong>Hello WILLIAM KWABENA FRIMPONG</strong>,<br>
-      You are eligible to proceed to the next level with <b>First Class Honours (CGPA 3.65)</b> as per the <span class="highlight">published result</span>.
+      You are eligible to proceed to the next level with **First Class Honours** (**CGPA 3.65**), as per the <span class="highlight">published result</span>.
       <ul>
         <li>CGPA is outstanding (Current: 3.65)</li> 
         <li>Met minimum credit requirements</li>
@@ -213,19 +265,50 @@
           <tr><td>LAR401</td><td>RESEARCH METHODS (PLACEHOLDER)</td><td></td><td>2</td><td>B+</td><td>6.6</td></tr>
         </tbody>
       </table>
-      <p class="gpa-summary"><strong>GPA:</strong> 3.80 | CGPA: 3.65</p>
+      <p class="gpa-summary"><strong>GPA:</strong> 3.80 | **CGPA: 3.65**</p>
     </div>
   </div>
   
-  <a href="javascript:window.print()" class="print-button">
-    🖨️ Print / Save as PDF
-  </a>
+  <div class="utility-buttons">
+      <a href="javascript:window.print()" class="print-button">
+        🖨️ Print / Save as PDF
+      </a>
+      <button class="dark-mode-toggle" id="darkModeToggle">
+          🌙 Dark Mode
+      </button>
+  </div>
   
 </section>
 <script>
   const toggleBtn = document.getElementById('menuToggle');
   const sidebar = document.getElementById('sidebarMenu');
   const overlay = document.getElementById('overlay'); 
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☀️ Light Mode';
+  } else {
+      darkModeToggle.textContent = '🌙 Dark Mode';
+  }
+
+  // Function to toggle dark mode
+  darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      let theme = 'light';
+      if (body.classList.contains('dark-mode')) {
+          theme = 'dark';
+          darkModeToggle.textContent = '☀️ Light Mode';
+      } else {
+          darkModeToggle.textContent = '🌙 Dark Mode';
+      }
+      // Save the preference
+      localStorage.setItem('theme', theme);
+  });
   
   // FIX: Ensure sidebar starts closed on mobile load
   sidebar.classList.remove('open');
